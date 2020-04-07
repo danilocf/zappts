@@ -11,7 +11,9 @@
       </div>
       <p class="SignTemplate__title">{{ title }}</p>
       <div class="SignTemplate__view">
-        <router-view @setTitle="setTitle" />
+        <transition name="fade" mode="out-in">
+          <router-view @setTitle="setTitle" />
+        </transition>
       </div>
     </div>
   </div>

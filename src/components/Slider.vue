@@ -1,17 +1,88 @@
 <template>
   <div class="Slider">
     <img class="Slider__img" src="@/assets/Data.png" alt="Slider image" />
-    <p class="Slider__title">Marcenas mattis egestas</p>
-    <p class="Slider__text">
-      Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse
-      porta.
-    </p>
-    <button class="Slider__btn Slider__btn--active"></button>
-    <button class="Slider__btn"></button>
-    <button class="Slider__btn"></button>
-    <button class="Slider__btn"></button>
+    <transition name="fade" mode="out-in">
+      <template v-for="(item, index) in items">
+        <div v-if="item.active" :key="index">
+          <p class="Slider__title">{{ item.title }}</p>
+          <p class="Slider__text">{{ item.text }}</p>
+        </div>
+      </template>
+    </transition>
+    <template v-for="(item, index) in items">
+      <button
+        class="Slider__btn"
+        :class="{ 'Slider__btn--active': item.active }"
+        :key="`button${index}`"
+        @click.prevent="jump(index)"
+      ></button>
+    </template>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      items: [
+        {
+          active: true,
+          title: "Marcenas mattis egestas",
+          text:
+            "Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse porta."
+        },
+        {
+          active: false,
+          title: "Marcenas mattis egestas 2",
+          text:
+            "Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse porta. 2"
+        },
+        {
+          active: false,
+          title: "Marcenas mattis egestas 3",
+          text:
+            "Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse porta. 3"
+        },
+        {
+          active: false,
+          title: "Marcenas mattis egestas 4",
+          text:
+            "Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse porta. 4"
+        }
+      ],
+      jumpInterval: null
+    };
+  },
+  mounted() {
+    this.setJumpInterval();
+  },
+  destroyed() {
+    clearInterval(this.jumpInterval);
+  },
+  methods: {
+    setJumpInterval() {
+      this.jumpInterval = setInterval(() => {
+        const items = this.items;
+        const activeItem = items.filter(i => i.active)[0];
+        const activeIndex = items.indexOf(activeItem);
+        const nextIndex =
+          activeIndex + 1 > items.length - 1 ? 0 : activeIndex + 1;
+        activeItem.active = false;
+        items[nextIndex].active = true;
+      }, 3000);
+    },
+
+    jump(index) {
+      clearInterval(this.jumpInterval);
+      this.items.forEach(i => {
+        i.active = false;
+      });
+      this.items[index].active = true;
+      this.$nextTick(this.setJumpInterval);
+    }
+  }
+};
+</script>
 
 <style lang="scss">
 .Slider {
@@ -45,6 +116,7 @@
     margin: 0 6px;
     opacity: 0.5;
     cursor: pointer;
+    transition: all linear 0.1s;
 
     &:focus {
       border: 1px solid #000;
