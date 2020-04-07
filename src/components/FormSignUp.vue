@@ -2,52 +2,56 @@
   <div class="FormSignUp">
     <form @submit.prevent="submit">
       <div class="flex-column">
-        <div>
-          <label for="fullname">Full Name</label>
+        <div class="FormInput">
+          <label for="fullname" class="FormInput__label">Full Name</label>
           <input
             v-model="form.fullname"
             type="text"
+            class="FormInput__input"
             id="fullname"
             name="fullname"
             required
           />
         </div>
-        <div>
-          <label for="user">Users name or Email</label>
+        <div class="FormInput">
+          <label for="user" class="FormInput__label">Users name or Email</label>
           <input
             v-model="form.user"
             type="text"
+            class="FormInput__input"
             id="user"
             name="user"
             required
           />
         </div>
-        <div>
-          <label for="password">Create Password</label>
+        <div class="FormInput">
+          <label for="password" class="FormInput__label">Create Password</label>
           <input
             v-model="form.password"
             type="password"
+            class="FormInput__input"
             id="password"
             name="password"
             required
           />
         </div>
-        <router-link to="">Forget password?</router-link>
       </div>
-      <button type="submit">Sign up</button>
+      <BtnSubmit label="Sign up" />
     </form>
-    <SpacerFormGoogle />
+    <SpacerGoogleAuth />
     <BtnGoogleAuth actionLabel="Sign up" />
   </div>
 </template>
 
 <script>
-import SpacerFormGoogle from "@/components/SpacerFormGoogle";
+import BtnSubmit from "@/components/BtnSubmit";
+import SpacerGoogleAuth from "@/components/SpacerGoogleAuth";
 import BtnGoogleAuth from "@/components/BtnGoogleAuth";
 
 export default {
   components: {
-    SpacerFormGoogle,
+    BtnSubmit,
+    SpacerGoogleAuth,
     BtnGoogleAuth
   },
   data() {

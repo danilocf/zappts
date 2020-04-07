@@ -1,8 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import PageNotFound from "./views/PageNotFound.vue";
-import SignTemplate from "./views/SignTemplate.vue";
-import SignIn from "./views/SignIn.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
+import SignTemplate from "@/views/SignTemplate.vue";
+import SignIn from "@/views/SignIn.vue";
 
 Vue.use(VueRouter);
 
@@ -34,7 +34,7 @@ const routes = [
         path: "up",
         name: "SignUp",
         component: () =>
-          import(/* webpackChunkName: "sign-up" */ "./views/SignUp.vue")
+          import(/* webpackChunkName: "sign-up" */ "@/views/SignUp.vue")
       }
     ]
   }

@@ -1,4 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, b, small, label, button, input {
+  margin: 0;
+  font-family: $fontFamilyMuli;
+  font-weight: 400;
+}
+
+button {
+  cursor: pointer;
+}
+
+b {
+  font-weight: 700;
+}
+
+a {
+  color: $colorTheme;
+  font-size: $fontSizeS;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.FormInput {
+  text-align: left;
+  display: inline-flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  &__label {
+    font-size: $fontSizeXS;
+  }
+
+  &__input {
+    font-size: $fontSizeS;
+    font-family: $fontFamilyMuli;
+    border: none;
+    border-bottom: 1px solid $colorGreyLight;
+    padding: 11px 20px;
+  }
+
+  &:last-child {
+    margin-bottom: 40px;
+  }
 }

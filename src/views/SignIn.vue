@@ -1,7 +1,7 @@
 <template>
   <div class="SignIn">
     <FormSignIn />
-    <p>
+    <p class="SignIn__text">
       New <b>Invision</b>?
       <router-link :to="{ name: 'SignUp' }">Create Account</router-link>
     </p>
@@ -20,3 +20,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.SignIn__text {
+  font-size: $fontSizeXS;
+}
+</style>

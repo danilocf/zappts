@@ -2,42 +2,46 @@
   <div class="FormSignIn">
     <form @submit.prevent="submit">
       <div class="flex-column">
-        <div>
-          <label for="user">Users name or Email</label>
+        <div class="FormInput">
+          <label for="user" class="FormInput__label">Users name or Email</label>
           <input
             v-model="form.user"
             type="text"
+            class="FormInput__input"
             id="user"
             name="user"
             required
           />
         </div>
-        <div>
-          <label for="password">Password</label>
+        <div class="FormInput">
+          <label for="password" class="FormInput__label">Password</label>
           <input
             v-model="form.password"
             type="password"
+            class="FormInput__input"
             id="password"
             name="password"
             required
           />
         </div>
-        <router-link to="">Forget password?</router-link>
+        <small class="FormSignIn__resetPassword">Forget password?</small>
       </div>
-      <button type="submit">Sign in</button>
+      <BtnSubmit label="Sign in" />
     </form>
-    <SpacerFormGoogle />
+    <SpacerGoogleAuth />
     <BtnGoogleAuth actionLabel="Sign in" />
   </div>
 </template>
 
 <script>
-import SpacerFormGoogle from "@/components/SpacerFormGoogle";
+import BtnSubmit from "@/components/BtnSubmit";
+import SpacerGoogleAuth from "@/components/SpacerGoogleAuth";
 import BtnGoogleAuth from "@/components/BtnGoogleAuth";
 
 export default {
   components: {
-    SpacerFormGoogle,
+    BtnSubmit,
+    SpacerGoogleAuth,
     BtnGoogleAuth
   },
   data() {
@@ -55,3 +59,14 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.FormSignIn {
+  .FormSignIn__resetPassword {
+    text-align: right;
+    font-size: $fontSizeXS;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+}
+</style>

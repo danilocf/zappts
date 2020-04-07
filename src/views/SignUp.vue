@@ -1,12 +1,12 @@
 <template>
   <div class="SignUp">
     <FormSignUp />
-    <p>By signing up, you agree to <b>Invision</b></p>
-    <p>
+    <p class="SignUp__text">By signing up, you agree to <b>Invision</b></p>
+    <p class="SignUp__text">
       <router-link to="">Terms of Conditions</router-link> and
       <router-link to="">Privacy Policy</router-link>
     </p>
-    <p>
+    <p class="SignUp__text">
       Already on <b>Invision</b>?
       <router-link :to="{ name: 'SignIn' }">Log in</router-link>
     </p>
@@ -25,3 +25,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.SignUp__text {
+  font-size: $fontSizeXS;
+
+  &:last-child {
+    margin-top: 20px;
+  }
+}
+</style>
