@@ -3,3 +3,8 @@
     <router-view />
   </div>
 </template>
+
+<style lang="scss">
+@import "~normalize.css/normalize.css";
+@import "@/styles/common.scss";
+</style>

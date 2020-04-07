@@ -1,7 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import PageNotFound from "./views/PageNotFound.vue";
-import Login from "./views/Login.vue";
+import SignTemplate from "./views/SignTemplate.vue";
+import SignIn from "./views/SignIn.vue";
 
 Vue.use(VueRouter);
 
@@ -14,18 +15,28 @@ const routes = [
   {
     path: "/",
     name: "Index",
-    redirect: "/login"
+    redirect: "/sign/in"
   },
   {
-    path: "/login",
-    name: "Login",
-    component: Login
-  },
-  {
-    path: "/register",
-    name: "Register",
-    component: () =>
-      import(/* webpackChunkName: "register" */ "./views/Register.vue")
+    path: "/sign",
+    component: SignTemplate,
+    children: [
+      {
+        path: "",
+        redirect: "/sign/in"
+      },
+      {
+        path: "in",
+        name: "SignIn",
+        component: SignIn
+      },
+      {
+        path: "up",
+        name: "SignUp",
+        component: () =>
+          import(/* webpackChunkName: "sign-up" */ "./views/SignUp.vue")
+      }
+    ]
   }
 ];
 
