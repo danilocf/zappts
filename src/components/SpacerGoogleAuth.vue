@@ -21,6 +21,12 @@
   &__text {
     font-size: $fontSizeXS;
     margin: 0 16px;
+  } 
+
+  @media screen and (max-width: 968px) {
+    &__line {
+      width: 70px;
+    }
   }
 }
 </style>

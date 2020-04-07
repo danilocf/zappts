@@ -68,16 +68,30 @@ export default {
     margin: 50px 0;
   }
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-  }
-
   &__view {
     color: $colorGreyLight;
     text-align: center;
     width: 100%;
     max-width: 430px;
     margin: auto;
+  }
+
+  @media screen and (max-width: 968px) {
+    flex-direction: column;
+
+    &__col {
+      min-height: initial;
+      padding: 2rem;
+
+      &--theme {
+        padding: 2rem;
+      }
+    }
+
+    &__logoText {
+      text-align: center;
+      width: 100%;
+    }
   }
 }
 </style>
