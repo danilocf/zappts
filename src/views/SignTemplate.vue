@@ -4,9 +4,11 @@
       <Slider />
     </div>
     <div class="SignTemplate__col">
-      <router-link to="/" class="SignTemplate__logoText"
-        ><h1><b>Invision</b></h1></router-link
-      >
+      <div class="flex-end">
+        <router-link to="/" class="SignTemplate__logoText"
+          ><b>Invision</b></router-link
+        >
+      </div>
       <p class="SignTemplate__title">{{ title }}</p>
       <div class="SignTemplate__view">
         <router-view @setTitle="setTitle" />
@@ -42,7 +44,7 @@ export default {
   &__col {
     width: 100%;
     min-height: 100vh;
-    padding: 1rem 3rem 2rem;
+    padding: 2rem 3rem;
     // FIXME:
     // padding: 112px 0;
 
@@ -53,14 +55,10 @@ export default {
   }
 
   &__logoText {
-    text-align: right;
+    // TODO: font-family Avenir
+    font-size: $fontSizeXl;
     color: #000;
     text-decoration: none;
-
-    h1 {
-      // TODO: font-family Avenir
-      font-size: $fontSizeXl;
-    }
   }
 
   &__title {

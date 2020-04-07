@@ -6,10 +6,10 @@
       Erdum et malesuada fames ac ante ileum primmer in faucibus uspendisse
       porta.
     </p>
-    <span class="Slider__btn Slider__btn--active"></span>
-    <span class="Slider__btn"></span>
-    <span class="Slider__btn"></span>
-    <span class="Slider__btn"></span>
+    <button class="Slider__btn Slider__btn--active"></button>
+    <button class="Slider__btn"></button>
+    <button class="Slider__btn"></button>
+    <button class="Slider__btn"></button>
   </div>
 </template>
 
@@ -40,10 +40,18 @@
     width: 12px;
     height: 11px;
     background-color: #fff;
+    border: none;
     border-radius: 50%;
     margin: 0 6px;
     opacity: 0.5;
     cursor: pointer;
+
+    &:focus {
+      border: 1px solid #000;
+      height: 14px;
+      outline: none;
+      box-shadow: 0px 3px 6px #00000059;
+    }
 
     &--active {
       width: 26px;
