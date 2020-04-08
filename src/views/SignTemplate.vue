@@ -46,7 +46,7 @@ export default {
   &__col {
     width: 100%;
     min-height: 100vh;
-    padding: 2rem 3rem;
+    padding: 5rem;
 
     &--theme {
       background-color: $colorTheme;
@@ -67,7 +67,7 @@ export default {
     @include size-l;
     color: $colorGreyLight;
     text-align: center;
-    margin: 50px 0;
+    margin: 80px 0;
   }
 
   &__view {
@@ -76,6 +76,16 @@ export default {
     width: 100%;
     max-width: 430px;
     margin: auto;
+  }
+
+  @include break-max-xl {
+    &__col {
+      padding: 3rem;
+    }
+    
+    &__title {
+      margin: 50px 0;
+    }
   }
 
   @include break-max-md {

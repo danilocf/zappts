@@ -8,7 +8,7 @@
   @media screen and (max-width: 992px) { @content; }
 }
 @mixin break-max-xl {
-  @media screen and (max-width: 1200px) { @content; }
+  @media screen and (max-width: 1440px) { @content; }
 }
 
 @mixin font-muli-regular {
