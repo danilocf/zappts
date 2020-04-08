@@ -13,5 +13,9 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+
+  h1 {
+    margin: 20px 0;
+  }
 }
 </style>

@@ -49,8 +49,10 @@ export default {
     padding: 2rem 3rem;
 
     &--theme {
-      padding: 4rem 3rem 2rem;
       background-color: $colorTheme;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
@@ -76,7 +78,7 @@ export default {
     margin: auto;
   }
 
-  @include break-max-lg {
+  @include break-max-md {
     flex-direction: column;
 
     &__col {
