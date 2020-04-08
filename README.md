@@ -1,4 +1,7 @@
-# danilo-teste-zappts
+# danilo-challenge-zappts
+
+## Presentation
+Link to [Google Docs](https://docs.google.com/presentation/d/1iY6As8E9WYZ6giybpfmDQACYvguupdBXOFhZ0Kr37ag/edit?usp=sharing)
 
 ## Project setup
 ```

@@ -1,9 +1,9 @@
 {
-  "name": "danilo-teste-zappts",
+  "name": "danilo-challenge-zappts",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "publish": "surge -p ./dist -d danilo-teste-zappts.surge.sh",
+    "publish": "surge -p ./dist -d danilo-challenge-zappts.surge.sh",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
