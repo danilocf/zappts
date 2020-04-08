@@ -26,7 +26,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .SignUp {
   .SignUp__text {
     @include size-xs;

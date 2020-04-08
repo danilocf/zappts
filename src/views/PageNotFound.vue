@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .PageNotFound {
   text-align: center;
   display: flex;

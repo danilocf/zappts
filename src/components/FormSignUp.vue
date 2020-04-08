@@ -2,63 +2,28 @@
   <div class="FormSignUp">
     <form @submit.prevent="validate">
       <div class="flex-column">
-        <div
-          class="FormInput"
-          :class="{ 'FormInput--error': !!errors.fullname }"
-        >
-          <label for="fullname" class="FormInput__label">
-            Full Name
-            <template v-if="errors.fullname"
-              >* This field can not be empty</template
-            >
-          </label>
-          <input
-            v-model="form.fullname"
-            type="text"
-            class="FormInput__input"
-            id="fullname"
-            name="fullname"
-            @input="errors.fullname = null"
-            :disabled="loading"
+        <FormInput 
+          v-model="form.fullname"
+          id="fullname"
+          label="Full Name"
+          :error="errors.fullname"
+          :loading="loading"
           />
-        </div>
-        <div class="FormInput" :class="{ 'FormInput--error': !!errors.user }">
-          <label for="user" class="FormInput__label">
-            Users name or Email
-            <template v-if="errors.user"
-              >* This field can not be empty</template
-            >
-          </label>
-          <input
-            v-model="form.user"
-            type="text"
-            class="FormInput__input"
-            id="user"
-            name="user"
-            @input="errors.user = null"
-            :disabled="loading"
+        <FormInput 
+          v-model="form.user"
+          id="user"
+          label="Users name or Email"
+          :error="errors.user"
+          :loading="loading"
           />
-        </div>
-        <div
-          class="FormInput"
-          :class="{ 'FormInput--error': !!errors.password }"
-        >
-          <label for="password" class="FormInput__label">
-            Create Password
-            <template v-if="errors.password"
-              >* This field can not be empty</template
-            >
-          </label>
-          <input
-            v-model="form.password"
-            type="password"
-            class="FormInput__input"
-            id="password"
-            name="password"
-            @input="errors.password = null"
-            :disabled="loading"
+        <FormInput 
+          v-model="form.password"
+          type="password"
+          id="password"
+          label="Create Password"
+          :error="errors.password"
+          :loading="loading"
           />
-        </div>
       </div>
       <BtnSubmit :label="btnLabel" :disabled="btnDisabled" />
     </form>
@@ -68,6 +33,7 @@
 </template>
 
 <script>
+import FormInput from "@/components/FormInput";
 import BtnSubmit from "@/components/BtnSubmit";
 import SpacerGoogleAuth from "@/components/SpacerGoogleAuth";
 import BtnGoogleAuth from "@/components/BtnGoogleAuth";
@@ -75,6 +41,7 @@ import ServiceApi from "@/services/ServiceApi.js";
 
 export default {
   components: {
+    FormInput,
     BtnSubmit,
     SpacerGoogleAuth,
     BtnGoogleAuth
@@ -93,6 +60,17 @@ export default {
       },
       loading: false
     };
+  },
+  watch: {
+    'form.fullname': function () {
+      this.errors.fullname = null
+    },
+    'form.user': function () {
+      this.errors.user = null
+    },
+    'form.password': function () {
+      this.errors.password = null
+    }
   },
   computed: {
     anyErrors() {
@@ -123,6 +101,7 @@ export default {
     async submit() {
       try {
         this.loading = true;
+        console.log("form", JSON.stringify(this.form));
         const { data } = await ServiceApi.postSignUp(this.form);
         console.log("submit", JSON.stringify(data));
         this.$router.push({ name: "SignIn" });
