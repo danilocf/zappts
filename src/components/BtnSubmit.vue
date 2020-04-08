@@ -1,6 +1,6 @@
 <template>
   <div class="BtnSubmit">
-    <button type="submit">{{ label }}</button>
+    <button type="submit" :disabled="disabled">{{ label }}</button>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ export default {
     label: {
       type: String,
       required: true
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 };

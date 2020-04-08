@@ -23,7 +23,7 @@
     margin: 0 16px;
   }
 
-  @include break-lg {
+  @include break-max-lg {
     &__line {
       width: 70px;
     }

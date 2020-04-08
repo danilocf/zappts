@@ -1,12 +1,13 @@
 <template>
-  <div class="PageNotFound">
-    <h1>404. Page not found :(</h1>
+  <div class="Success">
+    <p><small>* this is an example page</small></p>
+    <h1>Success! You are now logged in</h1>
     <router-link :to="{ name: 'Index' }">Go back</router-link>
   </div>
 </template>
 
 <style lang="scss">
-.PageNotFound {
+.Success {
   text-align: center;
   display: flex;
   flex-direction: column;

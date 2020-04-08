@@ -76,7 +76,7 @@ export default {
     margin: auto;
   }
 
-  @include break-lg {
+  @include break-max-lg {
     flex-direction: column;
 
     &__col {

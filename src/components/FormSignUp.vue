@@ -1,6 +1,6 @@
 <template>
   <div class="FormSignUp">
-    <form @submit.prevent="submit">
+    <form @submit.prevent="validate">
       <div class="flex-column">
         <div
           class="FormInput"
@@ -19,6 +19,7 @@
             id="fullname"
             name="fullname"
             @input="errors.fullname = null"
+            :disabled="loading"
           />
         </div>
         <div class="FormInput" :class="{ 'FormInput--error': !!errors.user }">
@@ -35,6 +36,7 @@
             id="user"
             name="user"
             @input="errors.user = null"
+            :disabled="loading"
           />
         </div>
         <div
@@ -54,10 +56,11 @@
             id="password"
             name="password"
             @input="errors.password = null"
+            :disabled="loading"
           />
         </div>
       </div>
-      <BtnSubmit label="Sign up" />
+      <BtnSubmit :label="btnLabel" :disabled="btnDisabled" />
     </form>
     <SpacerGoogleAuth />
     <BtnGoogleAuth actionLabel="Sign up" />
@@ -68,6 +71,7 @@
 import BtnSubmit from "@/components/BtnSubmit";
 import SpacerGoogleAuth from "@/components/SpacerGoogleAuth";
 import BtnGoogleAuth from "@/components/BtnGoogleAuth";
+import ServiceApi from "@/services/ServiceApi.js";
 
 export default {
   components: {
@@ -86,11 +90,23 @@ export default {
         fullname: null,
         user: null,
         password: null
-      }
+      },
+      loading: false
     };
   },
+  computed: {
+    anyErrors() {
+      return this.errors.fullname || this.errors.user || this.errors.password;
+    },
+    btnLabel() {
+      return this.loading ? "Loading..." : "Sign up";
+    },
+    btnDisabled() {
+      return this.anyErrors || this.loading;
+    }
+  },
   methods: {
-    submit() {
+    validate() {
       if (!this.form.fullname || !this.form.fullname.trim("").length) {
         this.errors.fullname = true;
       }
@@ -100,12 +116,24 @@ export default {
       if (!this.form.password || !this.form.password.trim("").length) {
         this.errors.password = true;
       }
-      if (this.errors.fullname || this.errors.user || this.errors.password)
-        return;
-      alert(JSON.stringify(this.form));
-      this.form.fullname = null;
-      this.form.user = null;
-      this.form.password = null;
+      if (this.anyErrors) return;
+      this.submit();
+    },
+
+    async submit() {
+      try {
+        this.loading = true;
+        const { data } = await ServiceApi.postSignUp(this.form);
+        console.log("submit", JSON.stringify(data));
+        this.$router.push({ name: "SignIn" });
+      } catch (error) {
+        console.log("submit", error);
+      } finally {
+        this.loading = false;
+        this.form.fullname = null;
+        this.form.user = null;
+        this.form.password = null;
+      }
     }
   }
 };

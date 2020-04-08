@@ -1,13 +1,13 @@
-@mixin break-sm {
+@mixin break-max-sm {
   @media screen and (max-width: 576px) { @content; }
 }
-@mixin break-md {
+@mixin break-max-md {
   @media screen and (max-width: 768px) { @content; }
 }
-@mixin break-lg {
+@mixin break-max-lg {
   @media screen and (max-width: 992px) { @content; }
 }
-@mixin break-xl {
+@mixin break-max-xl {
   @media screen and (max-width: 1200px) { @content; }
 }
 
@@ -55,5 +55,10 @@
   &:focus {
     outline: none;
     box-shadow: 0px 3px 6px #00000059;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .6;
   }
 }
