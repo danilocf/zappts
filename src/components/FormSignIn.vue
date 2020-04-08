@@ -2,21 +2,21 @@
   <div class="FormSignIn">
     <form @submit.prevent="validate">
       <div class="flex-column">
-        <FormInput 
+        <FormInput
           v-model="form.user"
           id="user"
           label="Users name or Email"
           :error="errors.user"
           :loading="loading"
-          />
-        <FormInput 
+        />
+        <FormInput
           v-model="form.password"
           type="password"
           id="password"
           label="Password"
           :error="errors.password"
           :loading="loading"
-          />
+        />
         <small class="FormSignIn__resetPassword">Forget password?</small>
       </div>
       <BtnSubmit :label="btnLabel" :disabled="btnDisabled" />
@@ -54,11 +54,11 @@ export default {
     };
   },
   watch: {
-    'form.user': function () {
-      this.errors.user = null
+    "form.user": function() {
+      this.errors.user = null;
     },
-    'form.password': function () {
-      this.errors.password = null
+    "form.password": function() {
+      this.errors.password = null;
     }
   },
   computed: {
@@ -86,7 +86,7 @@ export default {
 
     async submit() {
       try {
-        this.loading = true;  
+        this.loading = true;
         console.log("form", JSON.stringify(this.form));
         const { data } = await ServiceApi.postSignIn(this.form);
         console.log("submit", JSON.stringify(data));

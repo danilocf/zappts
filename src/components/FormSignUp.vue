@@ -2,28 +2,28 @@
   <div class="FormSignUp">
     <form @submit.prevent="validate">
       <div class="flex-column">
-        <FormInput 
+        <FormInput
           v-model="form.fullname"
           id="fullname"
           label="Full Name"
           :error="errors.fullname"
           :loading="loading"
-          />
-        <FormInput 
+        />
+        <FormInput
           v-model="form.user"
           id="user"
           label="Users name or Email"
           :error="errors.user"
           :loading="loading"
-          />
-        <FormInput 
+        />
+        <FormInput
           v-model="form.password"
           type="password"
           id="password"
           label="Create Password"
           :error="errors.password"
           :loading="loading"
-          />
+        />
       </div>
       <BtnSubmit :label="btnLabel" :disabled="btnDisabled" />
     </form>
@@ -62,14 +62,14 @@ export default {
     };
   },
   watch: {
-    'form.fullname': function () {
-      this.errors.fullname = null
+    "form.fullname": function() {
+      this.errors.fullname = null;
     },
-    'form.user': function () {
-      this.errors.user = null
+    "form.user": function() {
+      this.errors.user = null;
     },
-    'form.password': function () {
-      this.errors.password = null
+    "form.password": function() {
+      this.errors.password = null;
     }
   },
   computed: {

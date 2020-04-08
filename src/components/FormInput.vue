@@ -36,7 +36,7 @@ export default {
     type: {
       type: String,
       required: false,
-      default: 'text'
+      default: "text"
     },
     error: {
       type: Boolean,
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     onInput(e) {
-      this.$emit('input', e.target.value)
+      this.$emit("input", e.target.value);
     }
   }
 };
