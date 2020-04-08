@@ -1,6 +1,10 @@
 <template>
   <div class="Slider">
-    <img class="Slider__img" src="@/assets/Data_compressed.png" alt="Slider image" />
+    <img
+      class="Slider__img"
+      src="@/assets/Data_compressed.png"
+      alt="Slider image"
+    />
     <transition name="fade" mode="out-in">
       <template v-for="(item, index) in items">
         <div v-if="item.active" :key="index">

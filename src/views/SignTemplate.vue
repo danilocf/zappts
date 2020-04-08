@@ -82,7 +82,7 @@ export default {
     &__col {
       padding: 3rem;
     }
-    
+
     &__title {
       margin: 50px 0;
     }
