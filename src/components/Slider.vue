@@ -86,8 +86,8 @@ export default {
 
 <style lang="scss">
 .Slider {
-  text-align: center;
   color: #fff;
+  text-align: center;
 
   &__img {
     width: 80%;
@@ -96,12 +96,12 @@ export default {
   }
 
   &__title {
-    font-size: $fontSizeL;
+    @include size-l;
     margin: 20px auto;
   }
 
   &__text {
-    font-size: $fontSizeM;
+    @include size-m;
     max-width: 550px;
     margin: 0 auto 30px;
   }
@@ -114,6 +114,7 @@ export default {
     border: none;
     border-radius: 50%;
     margin: 0 6px;
+    padding: 0;
     opacity: 0.5;
     cursor: pointer;
     transition: all linear 0.1s;
@@ -129,6 +130,15 @@ export default {
       width: 26px;
       border-radius: 50px;
       opacity: 1;
+    }
+
+    line-height: normal;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
     }
   }
 }

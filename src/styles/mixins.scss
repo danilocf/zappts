@@ -1,0 +1,59 @@
+@mixin break-sm {
+  @media screen and (max-width: 576px) { @content; }
+}
+@mixin break-md {
+  @media screen and (max-width: 768px) { @content; }
+}
+@mixin break-lg {
+  @media screen and (max-width: 992px) { @content; }
+}
+@mixin break-xl {
+  @media screen and (max-width: 1200px) { @content; }
+}
+
+@mixin font-muli-regular {
+  font-family: $fontFamilyMuli;
+  font-weight: 400;
+}
+@mixin font-muli-bold {
+  font-family: $fontFamilyMuli;
+  font-weight: 700;
+}
+
+@mixin font-lato-regular {
+  font-family: $fontFamilyLato;
+  font-weight: 400;
+}
+
+@mixin size-xl {
+  font-size: 35px;
+}
+@mixin size-l {
+  font-size: 30px;
+}
+@mixin size-m {
+  font-size: 20px;
+}
+@mixin size-s {
+  font-size: 16px;
+}
+@mixin size-xs {
+  font-size: 14px;
+}
+
+@mixin base-button {
+  border: none;
+  border-radius: 100px;
+  margin-bottom: 40px;
+  display: inline-flex;
+  align-items: center;
+
+  &:hover {
+    box-shadow: 0px 3px 6px #00000039;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 3px 6px #00000059;
+  }
+}

@@ -18,22 +18,11 @@ export default {
 <style lang="scss">
 .BtnSubmit {
   button {
+    @include font-muli-regular;
+    @include base-button;
     color: #fff;
-    font-family: $fontFamilyMuli;
     background-color: $colorGreyLight;
-    border: none;
-    border-radius: 100px;
     padding: 12px 60px;
-    margin-bottom: 40px;
-
-    &:hover {
-      box-shadow: 0px 3px 6px #00000039;
-    }
-
-    &:focus {
-      outline: none;
-      box-shadow: 0px 3px 6px #00000059;
-    }
   }
 }
 </style>

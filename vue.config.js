@@ -17,6 +17,6 @@ function addStyleResource(rule) {
     .use("style-resource")
     .loader("style-resources-loader")
     .options({
-      patterns: [path.resolve(__dirname, "./src/styles/vars.scss")]
+      patterns: [path.resolve(__dirname, "./src/styles/import.scss")]
     });
 }

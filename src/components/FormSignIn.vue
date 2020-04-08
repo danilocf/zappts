@@ -89,8 +89,8 @@ export default {
 <style lang="scss">
 .FormSignIn {
   .FormSignIn__resetPassword {
+    @include size-xs;
     text-align: right;
-    font-size: $fontSizeXS;
     margin-top: -10px;
     margin-bottom: 20px;
   }

@@ -5,7 +5,7 @@
     </div>
     <div class="SignTemplate__col">
       <div class="flex-end">
-        <router-link to="/" class="SignTemplate__logoText"
+        <router-link to="/" class="SignTemplate__logo"
           ><b>Invision</b></router-link
         >
       </div>
@@ -47,8 +47,6 @@ export default {
     width: 100%;
     min-height: 100vh;
     padding: 2rem 3rem;
-    // FIXME:
-    // padding: 112px 0;
 
     &--theme {
       padding: 4rem 3rem 2rem;
@@ -56,16 +54,16 @@ export default {
     }
   }
 
-  &__logoText {
+  &__logo {
+    @include size-xl;
     // TODO: font-family Avenir
-    font-size: $fontSizeXl;
     color: #000;
     text-decoration: none;
   }
 
   &__title {
+    @include size-l;
     color: $colorGreyLight;
-    font-size: $fontSizeL;
     text-align: center;
     margin: 50px 0;
   }
@@ -78,7 +76,7 @@ export default {
     margin: auto;
   }
 
-  @media screen and (max-width: 968px) {
+  @include break-lg {
     flex-direction: column;
 
     &__col {
@@ -90,7 +88,7 @@ export default {
       }
     }
 
-    &__logoText {
+    &__logo {
       text-align: center;
       width: 100%;
     }

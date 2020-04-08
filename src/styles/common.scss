@@ -3,9 +3,8 @@
 }
 
 h1, h2, h3, h4, h5, h6, p, b, small, label, button, input {
+  @include font-muli-regular;
   margin: 0;
-  font-family: $fontFamilyMuli;
-  font-weight: 400;
 }
 
 button {
@@ -13,12 +12,12 @@ button {
 }
 
 b {
-  font-weight: 700;
+  @include font-muli-bold;
 }
 
 a {
+  @include size-s;
   color: $colorTheme;
-  font-size: $fontSizeS;
 }
 
 .flex-column {
@@ -29,40 +28,6 @@ a {
 .flex-end {
   display: flex;
   justify-content: flex-end;
-}
-
-.FormInput {
-  text-align: left;
-  display: inline-flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-
-  &__label {
-    font-size: $fontSizeXS;
-  }
-
-  &__input {
-    font-size: $fontSizeS;
-    font-family: $fontFamilyMuli;
-    border: none;
-    border-bottom: 1px solid $colorGreyLight;
-    padding: 11px 20px;
-  }
-
-  &--error {  
-    .FormInput__label {
-      color: red; 
-    }
-
-    .FormInput__input {
-      border-bottom-color: red; 
-      border-bottom-width: 2px;
-    }
-  }
-
-  &:last-child {
-    margin-bottom: 40px;
-  }
 }
 
 .fade-enter-active, .fade-leave-active {

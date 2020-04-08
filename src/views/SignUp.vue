@@ -27,11 +27,13 @@ export default {
 </script>
 
 <style lang="scss">
-.SignUp__text {
-  font-size: $fontSizeXS;
+.SignUp {
+  .SignUp__text {
+    @include size-xs;
 
-  &:last-child {
-    margin-top: 20px;
+    &:last-child {
+      margin-top: 20px;
+    }
   }
 }
 </style>

@@ -22,7 +22,9 @@ export default {
 </script>
 
 <style lang="scss">
-.SignIn__text {
-  font-size: $fontSizeXS;
+.SignIn {
+  .SignIn__text {
+    @include size-xs;
+  }
 }
 </style>

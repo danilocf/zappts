@@ -19,11 +19,11 @@
   }
 
   &__text {
-    font-size: $fontSizeXS;
+    @include size-xs;
     margin: 0 16px;
   }
 
-  @media screen and (max-width: 968px) {
+  @include break-lg {
     &__line {
       width: 70px;
     }
